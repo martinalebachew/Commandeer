@@ -182,7 +182,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Commandeer.cpp" />
+    <ClCompile Include="src\Browsers\Brave.cpp" />
+    <ClCompile Include="src\Commandeer.cpp" />
+    <ClCompile Include="src\OS\OS.h" />
+    <ClCompile Include="src\OS\Windows.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Browsers\Brave.h" />
+    <ClInclude Include="src\Browsers\Browser.h" />
+    <ClInclude Include="src\OS\Windows.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
