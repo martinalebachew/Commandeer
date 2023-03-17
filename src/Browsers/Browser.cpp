@@ -32,7 +32,6 @@ std::string Browser::ParseDebugEndpoint() const {
 	CURL* curl = curl_easy_init();
 
 	if (curl) {
-		CURLcode res;
 		std::string jsonBuffer;
 		curl_easy_setopt(curl, CURLOPT_URL, "http://localhost:9222/json");
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WritePageToStringCallback);
