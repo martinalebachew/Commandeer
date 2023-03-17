@@ -14,4 +14,5 @@ int main()
     browser->LaunchWithFlags();
     //std::string dbg_endpoint = browser.ExtractDebugEndpoint();
     //std::cout << dbg_endpoint << std::endl;
+    //browser->Kill();
 }
