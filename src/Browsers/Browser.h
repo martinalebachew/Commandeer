@@ -13,17 +13,9 @@ protected:
 	OS* _os;
 
 public:
-	Browser(std::string& execName, std::string& execPath, std::string& flags, OS* os) :
-		_execName(execName), _execPath(execPath), _flags(flags), _os(os) { }
-
-	Browser(std::string execName, std::string execPath, std::string flags, OS* os) :
-		_execName(execName), _execPath(execPath), _flags(flags), _os(os) { }
-
-	bool Kill() const {
-		return _os->KillProcessByExecName(_execName);
-	}
-	
-	bool LaunchWithFlags() const {
-		return _os->LaunchBrowserExec(_execPath, _flags);
-	}
+	Browser(std::string& execName, std::string& execPath, std::string& flags, OS* os);
+	Browser(std::string execName, std::string execPath, std::string flags, OS* os);
+	bool Kill() const;
+	bool LaunchWithFlags() const;
+	virtual std::string ParseDebugEndpoint() const;
 };

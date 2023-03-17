@@ -6,6 +6,6 @@
 
 class OS {
 public:
-	virtual bool KillProcessByExecName(std::string execName) = 0;
-	virtual bool LaunchBrowserExec(std::string execPath, std::string flags) = 0;
+	virtual bool KillProcessByExecName(std::string execName) const = 0;
+	virtual bool LaunchBrowserExec(std::string execPath, std::string flags) const = 0;
 };

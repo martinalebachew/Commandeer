@@ -9,9 +9,9 @@
 
 class Windows : public OS {
 protected:
-	std::vector<HANDLE> GetProcessHandlesByName(std::string execName);
+	std::vector<HANDLE> GetProcessHandlesByName(std::string execName) const;
 
 public:
-	bool KillProcessByExecName(std::string execName) override;
-	bool LaunchBrowserExec(std::string execPath, std::string flags) override;
+	bool KillProcessByExecName(std::string execName) const override;
+	bool LaunchBrowserExec(std::string execPath, std::string flags) const override;
 };

@@ -27,6 +27,9 @@
     <ClCompile Include="src\Browsers\Brave.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Browsers\Browser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Browsers\Browser.h">
