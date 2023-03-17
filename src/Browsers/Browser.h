@@ -24,6 +24,6 @@ public:
 	}
 	
 	bool LaunchWithFlags() const {
-		return _os->LaunchExec(_execPath, _flags);
+		return _os->LaunchBrowserExec(_execPath, _flags);
 	}
 };
