@@ -57,7 +57,7 @@ bool Windows::LaunchBrowserExec(std::string execPath, std::string flags) const {
 
 	if (!CreateProcessA(
 		(LPCSTR)execPath.c_str(),   // Browser's executable path
-		(LPSTR)flags.c_str(),       // Command line flags: headless, remote-debugging-port, user-data-dir
+		(LPSTR)("\"" + execPath + "\" " + flags).c_str(), // Command line flags: headless, remote-debugging-port, user-data-dir
 		NULL,                       // Process handle is not inheritable
 		NULL,                       // Thread handle is not inheritable
 		false,                      // Don't inherit Commandeer's handles
