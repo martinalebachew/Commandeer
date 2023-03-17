@@ -14,4 +14,5 @@ protected:
 public:
 	bool KillProcessByExecName(std::string execName) const override;
 	bool LaunchBrowserExec(std::string execPath, std::string flags) const override;
+	void Wait(unsigned int seconds) const override;
 };

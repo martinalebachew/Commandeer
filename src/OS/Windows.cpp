@@ -100,3 +100,7 @@ bool Windows::LaunchBrowserExec(std::string execPath, std::string flags) const {
 
 	return true;
 }
+
+void Windows::Wait(unsigned int seconds) const {
+	Sleep(seconds * 1000);
+}

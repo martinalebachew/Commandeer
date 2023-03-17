@@ -46,3 +46,8 @@ std::string Browser::ParseDebugEndpoint() const {
 
 	return debugEndpoint;
 }
+
+void Browser::WaitUntilEndpointAccessible() const {
+	_os->Wait(10);
+	return;
+}
