@@ -12,6 +12,7 @@ int main()
 
     //browser->Kill();
     //browser->LaunchWithFlags();
+    browser->WaitUntilEndpointAccessible();
     std::string dbg_endpoint = browser->ParseDebugEndpoint();
     std::cout << dbg_endpoint << std::endl;
     //std::string cookies = browser->GetAllCookies(dbg_endpoint);

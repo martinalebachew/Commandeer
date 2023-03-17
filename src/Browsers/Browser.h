@@ -18,4 +18,5 @@ public:
 	bool Kill() const;
 	bool LaunchWithFlags() const;
 	virtual std::string ParseDebugEndpoint() const;
+	virtual void WaitUntilEndpointAccessible() const;
 };
