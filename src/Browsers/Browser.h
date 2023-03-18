@@ -2,6 +2,7 @@
 // (C) Martin Alebachew, 2023
 
 #pragma once
+#include "pch.h"
 #include <iostream>
 #include "../OS/OS.h"
 
@@ -17,6 +18,8 @@ public:
 	Browser(std::string execName, std::string execPath, std::string flags, OS* os);
 	bool Kill() const;
 	bool LaunchWithFlags() const;
-	virtual std::string ParseDebugEndpoint() const;
-	virtual void WaitUntilEndpointAccessible() const;
+	std::string ParseDebugEndpoint() const;
+	void WaitUntilEndpointAccessible() const;
+	std::string GetAllCookies(std::string endpoint) const;
+	bool DumpJSONIntoFile(std::string cookies) const;
 };

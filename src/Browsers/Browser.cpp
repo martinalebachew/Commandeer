@@ -1,11 +1,22 @@
 // Browser.cpp
 // (C) Martin Alebachew, 2023
 
+#include "pch.h"
 #include <iostream>
+#include <fstream>
 #include <curl/curl.h>
 #include <json/json.hpp>
+#include <boost/beast/core.hpp>
+#include <boost/beast/websocket.hpp>
+#include <boost/asio/connect.hpp>
+#include <boost/asio/ip/tcp.hpp>
 #include "Browser.h"
+
 using json = nlohmann::json;
+namespace beast = boost::beast;         // from <boost/beast.hpp>
+namespace websocket = beast::websocket; // from <boost/beast/websocket.hpp>
+namespace net = boost::asio;            // from <boost/asio.hpp>
+using tcp = boost::asio::ip::tcp;       // from <boost/asio/ip/tcp.hpp>
 
 Browser::Browser(std::string& execName, std::string& execPath, std::string& flags, OS* os) :
 	_execName(execName), _execPath(execPath), _flags(flags), _os(os) { }
@@ -48,6 +59,51 @@ std::string Browser::ParseDebugEndpoint() const {
 }
 
 void Browser::WaitUntilEndpointAccessible() const {
-	_os->Wait(10);
+	_os->Wait(7);
 	return;
+}
+
+std::string Browser::GetAllCookies(std::string endpoint) const {
+	try {
+		beast::flat_buffer cookiesBuffer;
+
+		net::io_context io_context;
+		tcp::resolver resolver { io_context };
+		websocket::stream<tcp::socket> ws { io_context };
+
+		// treat string properly
+
+		std::cout << "Connecting via WebSocket..." << std::endl;
+		auto const results = resolver.resolve("127.0.0.1", "9222");
+		auto ep = net::connect(ws.next_layer(), results);
+
+		std::string hsp2 = endpoint.substr(endpoint.find("9") + 4);
+		ws.handshake("localhost", hsp2);
+
+		ws.write(net::buffer(std::string(R"({"id": 1, "method": "Network.getAllCookies"})")));
+		ws.read(cookiesBuffer);
+		// ws.close(websocket::close_code::normal); FAILS for unknown reason
+		
+		return beast::buffers_to_string(cookiesBuffer.data());
+	}
+	catch(const std::exception& e) {
+		std::cerr << "Failed to get cookies: " << e.what() << std::endl;
+	}
+
+	return "";
+}
+
+bool Browser::DumpJSONIntoFile(std::string cookies) const {
+	try {
+		std::ofstream cookiesFile("cookies.cmdr");
+		cookiesFile << json::parse(cookies)["result"]["cookies"].dump(4);
+		cookiesFile.close();
+	}
+	catch (const std::exception& e) {
+		std::cerr << "Failed to write cookies file: " << e.what() << std::endl;
+		return false;
+	}
+
+	std::cout << "Cookies dumped into cookies.cmdr on working directory." << std::endl;
+	return true;
 }
