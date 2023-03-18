@@ -71,7 +71,7 @@ std::string Browser::GetAllCookies(std::string endpoint) const {
 		tcp::resolver resolver { io_context };
 		websocket::stream<tcp::socket> ws { io_context };
 
-		std::cout << "Connecting via WebSocket..." << std::endl;
+		std::cout << "Fetching cookies via WebSocket" << std::endl;
 		auto const results = resolver.resolve("127.0.0.1", "9222");
 		auto ep = net::connect(ws.next_layer(), results);
 
