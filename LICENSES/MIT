@@ -1,7 +1,5 @@
 MIT License
 
-Copyright (C) Martin Alebachew, 2023
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -19,23 +17,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-------------------------------------
-Commandeer uses the following libraries:
----
-libcurl
-CURL License
-Copyright (C) Daniel Stenberg, 1996 - 2023
----
-json
-MIT License
-Copyright (C) Niels Lohmann, 2013 - 2022 
----
-asio (boost)
-Boost Software License
-Copyright (C) Chris Kohlhoff, 2023
----
-beast (boost)
-Boost Software License
-Copyright (C) Vinnie Falco, 2023
