@@ -71,14 +71,12 @@ std::string Browser::GetAllCookies(std::string endpoint) const {
 		tcp::resolver resolver { io_context };
 		websocket::stream<tcp::socket> ws { io_context };
 
-		// treat string properly
-
 		std::cout << "Connecting via WebSocket..." << std::endl;
 		auto const results = resolver.resolve("127.0.0.1", "9222");
 		auto ep = net::connect(ws.next_layer(), results);
 
-		std::string hsp2 = endpoint.substr(endpoint.find("9") + 4);
-		ws.handshake("localhost", hsp2);
+		std::string endpoint_path = endpoint.substr(endpoint.find("9222") + std::string("9222").size());
+		ws.handshake("localhost", endpoint_path);
 
 		ws.write(net::buffer(std::string(R"({"id": 1, "method": "Network.getAllCookies"})")));
 		ws.read(cookiesBuffer);
