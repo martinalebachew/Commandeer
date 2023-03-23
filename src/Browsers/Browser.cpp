@@ -78,7 +78,7 @@ std::string Browser::GetAllCookies(std::string endpoint) const {
 		std::string endpoint_path = endpoint.substr(endpoint.find("9222") + std::string("9222").size());
 		ws.handshake("localhost", endpoint_path);
 
-		ws.write(net::buffer(std::string(R"({"id": 1, "method": "Network.getAllCookies"})")));
+		ws.write(net::buffer(std::string(R"({"id": 1, "method": "Storage.getCookies"})")));
 		ws.read(cookiesBuffer);
 		// ws.close(websocket::close_code::normal); FAILS for unknown reason
 		
