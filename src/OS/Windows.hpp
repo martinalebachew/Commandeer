@@ -5,6 +5,8 @@
 #include "OS.hpp"
 #include <iostream>
 #include <vector>
+
+#define UNICODE
 #include <Windows.h>
 #include <tlhelp32.h>
 
