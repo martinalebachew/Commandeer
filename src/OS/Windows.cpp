@@ -1,11 +1,7 @@
 // Windows.cpp
 // (C) Martin Alebachew, 2023
 
-#include "pch.h"
-#include <vector>
-#include <Windows.h> // Win32 API
-#include <tlhelp32.h>
-#include "Windows.h" // 'Windows' class header file
+#include "Windows.hpp"
 
 std::vector<HANDLE> Windows::GetProcessHandlesByName(std::string execName) const {
 	std::vector<HANDLE> hProcesses;

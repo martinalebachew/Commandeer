@@ -1,9 +1,10 @@
-// Brave.h
+// Brave.hpp
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "pch.h"
-#include "Browser.h"
+#include "../OS/OS.hpp"
+#include "Browser.hpp"
+
 
 class Brave : public Browser {
 public:

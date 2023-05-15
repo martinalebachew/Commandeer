@@ -1,16 +1,7 @@
 // Browser.cpp
 // (C) Martin Alebachew, 2023
 
-#include "pch.h"
-#include <iostream>
-#include <fstream>
-#include <curl/curl.h>
-#include <json/json.hpp>
-#include <boost/beast/core.hpp>
-#include <boost/beast/websocket.hpp>
-#include <boost/asio/connect.hpp>
-#include <boost/asio/ip/tcp.hpp>
-#include "Browser.h"
+#include "Browser.hpp"
 
 using json = nlohmann::json;
 namespace beast = boost::beast;         // from <boost/beast.hpp>
