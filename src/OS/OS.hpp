@@ -1,8 +1,7 @@
-// OS.h
+// OS.hpp
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "pch.h"
 #include <iostream>
 
 class OS {

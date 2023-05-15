@@ -1,12 +1,12 @@
-// Windows.h
+// Windows.hpp
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "pch.h"
+#include "OS.hpp"
 #include <iostream>
 #include <vector>
-#include <Windows.h> // Win32 API
-#include "OS.h"
+#include <Windows.h>
+#include <tlhelp32.h>
 
 class Windows : public OS {
 protected:

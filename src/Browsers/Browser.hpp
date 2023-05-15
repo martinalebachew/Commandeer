@@ -1,10 +1,16 @@
-// Browser.h
+// Browser.hpp
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "pch.h"
+#include "../OS/OS.hpp"
 #include <iostream>
-#include "../OS/OS.h"
+#include <fstream>
+#include <curl/curl.h>
+#include <nlohmann/json.hpp>
+#include <boost/beast/core.hpp>
+#include <boost/beast/websocket.hpp>
+#include <boost/asio/connect.hpp>
+#include <boost/asio/ip/tcp.hpp>
 
 class Browser {
 protected:
