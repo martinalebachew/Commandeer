@@ -1,10 +1,7 @@
-// Commandeer.cpp
+// commandeer.cpp
 // (C) Martin Alebachew, 2023
 
-#include "pch.h"
-#include <iostream>
-#include "OS/Windows.h"
-#include "Browsers/Brave.h"
+#include "commandeer.hpp"
 
 int main()
 {    
