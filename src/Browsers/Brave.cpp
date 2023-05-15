@@ -1,10 +1,7 @@
 // Brave.cpp
 // (C) Martin Alebachew, 2023
 
-#include "pch.h"
-#include "Browser.h"
-#include "../OS/OS.h"
-#include "Brave.h"
+#include "Brave.hpp"
 
 Brave::Brave(OS* os) :
 	Browser((std::string)"Brave.exe",
