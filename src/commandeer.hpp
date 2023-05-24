@@ -3,7 +3,7 @@
 
 #pragma once
 #include <iostream>
-#include "Browsers/Brave.hpp"
-#include "OS/Windows.hpp"
+#include "browsers/brave.hpp"
+#include "os.hpp"
 
 int main();

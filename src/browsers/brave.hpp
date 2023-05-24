@@ -2,7 +2,7 @@
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "../os/os.hpp"
+#include "../os.hpp"
 #include "browser.hpp"
 
 

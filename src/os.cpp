@@ -1,7 +1,13 @@
-// windows.cpp
+// os.cpp
 // (C) Martin Alebachew, 2023
 
-#include "windows.hpp"
+#include "os.hpp"
+
+#ifdef _WIN32 // Windows
+#include <vector>
+#define UNICODE
+#include <Windows.h>
+#include <tlhelp32.h>
 
 std::vector<HANDLE> Windows::GetProcessHandlesByName(std::string execName) const {
 	std::vector<HANDLE> hProcesses;
@@ -101,3 +107,4 @@ bool Windows::LaunchBrowserExec(std::string execPath, std::string flags) const {
 void Windows::Wait(unsigned int seconds) const {
 	Sleep(seconds * 1000);
 }
+#endif // Windows
