@@ -10,9 +10,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 file(GLOB SOURCES src/*.cpp src/*/*.cpp)
 add_executable(commandeer ${SOURCES})
 
-include_directories(${Boost_INCLUDE_DIRS})
 find_package(Boost REQUIRED)
 target_link_libraries(commandeer PRIVATE ${Boost_SYSTEM_LIBRARY})
+include_directories(${Boost_INCLUDE_DIRS})
 
 find_package(nlohmann_json CONFIG REQUIRED)
 target_link_libraries(commandeer PRIVATE nlohmann_json::nlohmann_json)
