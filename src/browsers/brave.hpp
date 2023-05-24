@@ -1,9 +1,9 @@
-// Brave.hpp
+// brave.hpp
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "../OS/OS.hpp"
-#include "Browser.hpp"
+#include "../os/os.hpp"
+#include "browser.hpp"
 
 
 class Brave : public Browser {

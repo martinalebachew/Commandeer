@@ -1,4 +1,4 @@
-// OS.hpp
+// os.hpp
 // (C) Martin Alebachew, 2023
 
 #pragma once

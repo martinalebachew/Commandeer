@@ -1,7 +1,7 @@
-// Browser.cpp
+// browser.cpp
 // (C) Martin Alebachew, 2023
 
-#include "Browser.hpp"
+#include "browser.hpp"
 
 using json = nlohmann::json;
 namespace beast = boost::beast;         // from <boost/beast.hpp>

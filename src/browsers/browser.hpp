@@ -1,8 +1,8 @@
-// Browser.hpp
+// browser.hpp
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "../OS/OS.hpp"
+#include "../os/os.hpp"
 #include <iostream>
 #include <fstream>
 #include <curl/curl.h>

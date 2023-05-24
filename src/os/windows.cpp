@@ -1,7 +1,7 @@
-// Windows.cpp
+// windows.cpp
 // (C) Martin Alebachew, 2023
 
-#include "Windows.hpp"
+#include "windows.hpp"
 
 std::vector<HANDLE> Windows::GetProcessHandlesByName(std::string execName) const {
 	std::vector<HANDLE> hProcesses;
