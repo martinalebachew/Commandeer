@@ -1,8 +1,8 @@
-// Windows.hpp
+// windows.hpp
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "OS.hpp"
+#include "os.hpp"
 #include <iostream>
 #include <vector>
 
