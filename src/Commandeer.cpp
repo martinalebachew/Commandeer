@@ -6,7 +6,7 @@
 int main()
 {    
     OS os;
-    Browser browser(os);
+    Brave browser(os);
 
     browser.Kill();
     browser.LaunchWithFlags();
