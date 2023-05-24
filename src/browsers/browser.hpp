@@ -17,11 +17,11 @@ protected:
 	std::string _execName;
 	std::string _execPath;
 	std::string _flags;
-	OS* _os;
+	OS _os;
 
 public:
-	Browser(std::string& execName, std::string& execPath, std::string& flags, OS* os);
-	Browser(std::string execName, std::string execPath, std::string flags, OS* os);
+	Browser(std::string& execName, std::string& execPath, std::string& flags, OS os);
+	Browser(std::string execName, std::string execPath, std::string flags, OS os);
 	bool Kill() const;
 	bool LaunchWithFlags() const;
 	std::string ParseDebugEndpoint() const;
