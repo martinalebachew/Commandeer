@@ -9,7 +9,7 @@
 #include <Windows.h>
 #include <tlhelp32.h>
 
-std::vector<HANDLE> Windows::GetProcessHandlesByName(std::string execName) const {
+std::vector<HANDLE> GetProcessHandlesByName(std::string execName) {
 	std::vector<HANDLE> hProcesses;
 	PROCESSENTRY32W entry;
 	entry.dwSize = sizeof(PROCESSENTRY32W);
@@ -29,7 +29,7 @@ std::vector<HANDLE> Windows::GetProcessHandlesByName(std::string execName) const
 	return hProcesses;
 }
 
-bool Windows::KillProcessByExecName(std::string execName) const {
+bool OS::KillProcessByExecName(std::string execName) const {
 	std::vector<HANDLE> hProcesses = GetProcessHandlesByName(execName);
 
 	if (!hProcesses.size()) {
@@ -50,7 +50,7 @@ bool Windows::KillProcessByExecName(std::string execName) const {
 	return true;
 }
 
-bool Windows::LaunchBrowserExec(std::string execPath, std::string flags) const {
+bool OS::LaunchBrowserExec(std::string execPath, std::string flags) const {
 	STARTUPINFOA si;
 	PROCESS_INFORMATION pi;
 
@@ -104,7 +104,7 @@ bool Windows::LaunchBrowserExec(std::string execPath, std::string flags) const {
 	return true;
 }
 
-void Windows::Wait(unsigned int seconds) const {
+void OS::Wait(unsigned int seconds) const {
 	Sleep(seconds * 1000);
 }
 #endif // Windows
