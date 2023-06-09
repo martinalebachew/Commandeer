@@ -5,23 +5,22 @@
 
 #ifdef _WIN32 // Windows
 #include <vector>
-#define UNICODE
 #include <Windows.h>
 #include <tlhelp32.h>
 
+std::string ToUppercase(std::string original) {
+	boost::to_upper(original);
+	return original;
+}
+
 std::vector<HANDLE> GetProcessHandlesByName(std::string execName) {
 	std::vector<HANDLE> hProcesses;
-	PROCESSENTRY32W entry;
-	entry.dwSize = sizeof(PROCESSENTRY32W);
+	PROCESSENTRY32 entry;
+	entry.dwSize = sizeof(PROCESSENTRY32);
 	HANDLE snapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
 
-	wchar_t* wExecName = new wchar_t[execName.length() + 1];
-	for (int i = 0; i < execName.length(); i++)
-		wExecName[i] = execName[i];
-	wExecName[execName.length()] = NULL; // Null termination character
-
 	while (Process32Next(snapshot, &entry)) {
-		if (_wcsicmp((WCHAR*)entry.szExeFile, wExecName) == 0)
+		if (ToUppercase(entry.szExeFile) == ToUppercase(execName))
 			hProcesses.push_back(OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID));
 	}
 
