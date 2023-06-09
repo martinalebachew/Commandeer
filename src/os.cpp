@@ -58,8 +58,8 @@ bool OS::LaunchBrowserExec(std::string execPath, std::string flags) const {
 	ZeroMemory(&pi, sizeof(pi));
 
 	if (!CreateProcessA(
-		(LPCSTR)execPath.c_str(),   // Browser's executable path
-		(LPSTR)("\"" + execPath + "\" " + flags).c_str(), // Command line flags: headless, remote-debugging-port, user-data-dir
+		(LPCSTR)execPath.c_str(),
+		(LPSTR)("\"" + execPath + "\" " + flags).c_str(), // Command line flags
 		NULL,                       // Process handle is not inheritable
 		NULL,                       // Thread handle is not inheritable
 		false,                      // Don't inherit Commandeer's handles
@@ -74,13 +74,13 @@ bool OS::LaunchBrowserExec(std::string execPath, std::string flags) const {
 		CHAR* errorMessage;
 
 		if (FormatMessageA(
-			FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS, // Formatting options
-			NULL,                   // Argument is irrelevant
-			errorCode,              // Specify requested message id as the error id
+			FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL,
+			errorCode,
 			0x409,                  // Retrieve error in en-US
 			(LPSTR)&errorMessage,   // Pointer to the message buffer, out
 			0,                      // Minumum size of the message buffer in TCHARs
-			NULL                    // Argument is irrelevant (no inserts)
+			NULL
 		))
 			std::cout << errorMessage << std::endl;
 		else
@@ -90,16 +90,9 @@ bool OS::LaunchBrowserExec(std::string execPath, std::string flags) const {
 	}
 	
 	std::cout << "Browser process created." << std::endl;
-	
-	// *** Uncomment to wait for process termination and print exit code ***
-	// DWORD exitCode;
-	// WaitForSingleObject(pi.hProcess, INFINITE);
-	// GetExitCodeProcess(pi.hProcess, &exitCode);
-	// std::cout << "Process finished with exit code: " << exitCode << std::endl;
 
 	CloseHandle(pi.hThread);
 	CloseHandle(pi.hProcess);
-
 	return true;
 }
 
