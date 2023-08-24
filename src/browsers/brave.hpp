@@ -8,5 +8,5 @@
 
 class Brave : public Browser {
 public:
-	Brave(OS os);
+	Brave();
 };

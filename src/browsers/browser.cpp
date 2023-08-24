@@ -9,18 +9,18 @@ namespace websocket = beast::websocket; // from <boost/beast/websocket.hpp>
 namespace net = boost::asio;            // from <boost/asio.hpp>
 using tcp = boost::asio::ip::tcp;       // from <boost/asio/ip/tcp.hpp>
 
-Browser::Browser(std::string& execName, std::string& execPath, std::string& flags, OS os) :
-	_execName(execName), _execPath(execPath), _flags(flags), _os(os) { }
+Browser::Browser(std::string& execName, std::string& execPath, std::string& flags) :
+	_execName(execName), _execPath(execPath), _flags(flags) { }
 
-Browser::Browser(std::string execName, std::string execPath, std::string flags, OS os) :
-	_execName(execName), _execPath(execPath), _flags(flags), _os(os) { }
+Browser::Browser(std::string execName, std::string execPath, std::string flags) :
+	_execName(execName), _execPath(execPath), _flags(flags) { }
 
 bool Browser::Kill() const {
-	return _os.KillProcessByExecName(_execName);
+	return KillProcessByExecName(_execName);
 }
 
 bool Browser::LaunchWithFlags() const {
-	return _os.LaunchBrowserExec(_execPath, _flags);
+	return LaunchBrowserExec(_execPath, _flags);
 }
 
 static size_t WritePageToStringCallback(void* contents, size_t size, size_t nmemb, std::string* string) {
@@ -50,7 +50,7 @@ std::string Browser::ParseDebugEndpoint() const {
 }
 
 void Browser::WaitUntilEndpointAccessible() const {
-	_os.Wait(7);
+	Wait(7);
 	return;
 }
 
