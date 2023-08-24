@@ -2,7 +2,7 @@
 // (C) Martin Alebachew, 2023
 
 #pragma once
-#include "../os.hpp"
+#include "os.hpp"
 #include <iostream>
 #include <fstream>
 #include <curl/curl.h>
