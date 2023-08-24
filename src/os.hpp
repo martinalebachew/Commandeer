@@ -4,6 +4,6 @@
 #pragma once
 #include <iostream>
 
-bool KillProcessByExecName(std::string execName) const;
-bool LaunchBrowserExec(std::string execPath, std::string flags) const;
-void Wait(unsigned int seconds) const;
+bool KillProcessByExecName(std::string execName);
+bool LaunchBrowserExec(std::string execPath, std::string flags);
+void Wait(unsigned int seconds);

@@ -28,7 +28,7 @@ std::vector<HANDLE> GetProcessHandlesByName(std::string execName) {
 	return hProcesses;
 }
 
-bool KillProcessByExecName(std::string execName) const {
+bool KillProcessByExecName(std::string execName) {
 	std::vector<HANDLE> hProcesses = GetProcessHandlesByName(execName);
 
 	if (!hProcesses.size()) {
@@ -49,7 +49,7 @@ bool KillProcessByExecName(std::string execName) const {
 	return true;
 }
 
-bool LaunchBrowserExec(std::string execPath, std::string flags) const {
+bool LaunchBrowserExec(std::string execPath, std::string flags) {
 	STARTUPINFOA si;
 	PROCESS_INFORMATION pi;
 
@@ -96,7 +96,7 @@ bool LaunchBrowserExec(std::string execPath, std::string flags) const {
 	return true;
 }
 
-void Wait(unsigned int seconds) const {
+void Wait(unsigned int seconds) {
 	Sleep(seconds * 1000);
 }
 #endif // Windows
