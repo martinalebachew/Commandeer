@@ -10,7 +10,7 @@ int main()
 {    
 	Browser brave((std::string)"brave.exe",
     (std::string)R"(C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe)",
-    (std::string)R"(--remote-debugging-port=9222 --headless=new --user-data-dir="C:\Users\martin\AppData\Local\BraveSoftware\Brave-Browser\User Data")")
+    (std::string)R"(--remote-debugging-port=9222 --headless=new --user-data-dir="C:\Users\martin\AppData\Local\BraveSoftware\Brave-Browser\User Data")");
 
     brave.Kill();
     brave.LaunchWithFlags();
