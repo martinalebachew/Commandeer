@@ -20,10 +20,8 @@ target_link_libraries(commandeer PRIVATE nlohmann_json::nlohmann_json)
 find_package(CURL CONFIG REQUIRED)
 target_link_libraries(commandeer PRIVATE CURL::libcurl)
 
-target_precompile_headers(commandeer
-  PUBLIC src/commandeer.hpp 
-  PRIVATE <iostream> <vector> <fstream>
-  PRIVATE <Windows.h> <tlhelp32.h>
-  PRIVATE <curl/curl.h> <nlohmann/json.hpp>
-  PRIVATE <boost/beast/core.hpp> <boost/beast/websocket.hpp> <boost/asio/connect.hpp> <boost/asio/ip/tcp.hpp>
+target_precompile_headers(commandeer PRIVATE
+  <iostream> <vector> <fstream>
+  <curl/curl.h> <nlohmann/json.hpp>
+  <boost/beast/core.hpp> <boost/beast/websocket.hpp> <boost/asio/connect.hpp> <boost/asio/ip/tcp.hpp>
 )
